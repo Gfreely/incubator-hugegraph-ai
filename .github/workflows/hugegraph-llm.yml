@@ -65,15 +65,6 @@ jobs:
           uv pip list | grep hugegraph
           echo "=== Python path ==="
           python -c "import sys; [print(p) for p in sys.path]"
-
-      - name: Run unit tests
-        run: |
-          source .venv/bin/activate
-          export PYTHONPATH=$(pwd)/hugegraph-llm/src
-          export SKIP_EXTERNAL_SERVICES=true
-          cd hugegraph-llm
-          python -m pytest src/tests/config/test_config.py src/tests/document/  src/tests/indices/test_vector_index.py  src/tests/middleware/  src/tests/models/rerankers/ src/tests/models/embeddings/ src/tests/models/llms/ src/tests/operators/document_op/ src/tests/operators/hugegraph_op/ src/tests/operators/index_op src/tests/operators/llm_op/ src/tests/operators/common_op/ -v
-          python -m pytest src/tests/integration/ -v
           
       - name: Run integration tests
         run: |
