@@ -3,7 +3,7 @@ name: HugeGraph-LLM CI
 on:
   push:
     branches:
-      - 'release-*'
+      - 'uttest'
   pull_request:
 
 jobs:
