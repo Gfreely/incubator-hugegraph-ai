@@ -42,15 +42,9 @@ jobs:
 
       - name: Install dependencies and show pylint deps
         run: |
-          # 步骤 1: 安装项目依赖 (确保 pylint 在这里)
           uv sync --extra all --extra dev
-      
-          # 步骤 2: 确保安装 pipdeptree
-          # 这一行很可能是您遗漏的，或者放错了位置
           echo "Installing pipdeptree..."
           uv pip install pipdeptree
-      
-          # 步骤 3: 现在系统已经认识 pipdeptree 命令了，可以安全调用
           echo "Pylint dependency tree:"
           pipdeptree -p pylint
 
