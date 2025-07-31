@@ -49,6 +49,7 @@ jobs:
           uv pip install pipdeptree
           echo "Pylint dependency tree:"
           python -m pipdeptree --reverse -p pylint
+          uv pip show pylint
 
       - name: Check DGL version
         run: |
