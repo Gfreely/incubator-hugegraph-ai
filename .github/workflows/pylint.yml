@@ -48,7 +48,7 @@ jobs:
           echo "Installing pipdeptree..."
           uv pip install pipdeptree
           echo "Pylint dependency tree:"
-          python -m pipdeptree -p pylint
+          python -m pipdeptree --reverse -p pylint
 
       - name: Check DGL version
         run: |
