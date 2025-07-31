@@ -6,7 +6,7 @@ on:
     branches:
       - 'main'
       - 'master'
-      - 'release-*'
+      - 'test_pylint'
   pull_request:
 
 jobs:
@@ -43,6 +43,18 @@ jobs:
       - name: Install dependencies
         run: |
           uv sync --extra all --extra dev
+          
+      - name: Install dependencies and show pylint deps
+        run: |
+          # Step 1: 和原来一样，安装项目的所有依赖
+          uv sync --extra all --extra dev
+      
+          # Step 2: 安装用于查询依赖树的工具
+          uv pip install pipdeptree
+      
+          # Step 3: 打印 pylint 的完整依赖树
+          echo "Pylint dependency tree:"
+          pipdeptree -p pylint
 
       - name: Check DGL version
         run: |
