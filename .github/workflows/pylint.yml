@@ -42,11 +42,13 @@ jobs:
 
       - name: Install dependencies and show pylint deps
         run: |
+          uv venv
+          source .venv/bin/activate
           uv sync --extra all --extra dev
           echo "Installing pipdeptree..."
           uv pip install pipdeptree
           echo "Pylint dependency tree:"
-          uv python pipdeptree -p pylint
+          python -m pipdeptree -p pylint
 
       - name: Check DGL version
         run: |
