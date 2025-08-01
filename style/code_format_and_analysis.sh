@@ -53,5 +53,6 @@ if [ "$PYLINT" = true ] ; then
   echo "[pylint] Start code analysis and check,
   we need to manually fix all the warnings mentioned below before commit! "
   export PYTHONPATH=${ROOT_DIR}/hugegraph-llm/src:${ROOT_DIR}/hugegraph-python-client/src:${ROOT_DIR}/hugegraph-ml/src
+  pylint --version
   pylint --rcfile=${ROOT_DIR}/style/pylint.conf ${ROOT_DIR}/hugegraph-llm ${ROOT_DIR}/hugegraph-ml ${ROOT_DIR}/hugegraph-python-client
 fi
