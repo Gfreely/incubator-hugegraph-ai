@@ -71,6 +71,7 @@ def get_vector_index_info():
 
 def clean_vector_index():
     VectorIndex.clean(str(os.path.join(resource_path, huge_settings.graph_name, "chunks")))
+    VectorIndex.clean(str(os.path.join(resource_path, huge_settings.graph_name, "chunks")))
     gr.Info("Clean vector index successfully!")
 
 
